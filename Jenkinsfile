@@ -6,22 +6,27 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat "${dotnet} build"
+                echo "building.."
             }
         }
         stage('Run') {
             steps {
-                bat "${dotnet} run"
+                echo "running.."
             }
         }
         stage('Clean') {
             steps {
-                bat "${dotnet} clean"
+                echo "cleaning.."
             }
         }
          stage('Script') {
             steps {
-                echo 'brb....'
+                script{
+                    def hello = "hello world";
+                    println hello;
+                    for(x in 1..5)
+                        println x
+                }
             }
         }
     }
