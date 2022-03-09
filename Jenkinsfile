@@ -29,5 +29,10 @@ pipeline {
                 }
             }
         }
+        stage('docker') {
+            steps {
+                bat "docker build ."
+            }
+        }
     }
 }
